@@ -1,0 +1,79 @@
+<center>
+    <input id="search" type="text" placeholder="enter website url haha"> <button id="gobtn" onclick="update_frame()">go!</button>
+</center>
+
+<center>
+    <iframe id="viewport" src="loading.html" width="960" height="540"></iframe>
+</center>
+
+<script>
+
+    var search_input = document.getElementById("search")
+    var frame = document.getElementById("viewport")
+
+
+    function encode_artclass(url) {
+        var change = url.toString().split('')
+        .map((char, ind) => ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char)
+        .join('')
+
+        return encodeURIComponent(change)
+    }
+
+    function update_frame() {
+
+        frame.src = "spongebob.mp4"
+
+        var encoded = encode_artclass(search_input.value)
+        frame.src = "https://artclass.site/service/" + encoded
+
+    }
+
+</script>
+
+<style>
+    button {
+        background-color: #111;
+        transition: 0.4s border;
+        border-radius: 5px;
+        border: none;
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        padding: 5px 15px;
+        margin: 5px auto;
+    }
+
+    iframe {
+        transition: 0.4s border;
+        border-radius: 5px;
+        border: none;
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        padding: 5px 15px;
+        margin: 5px auto;
+    }
+
+    input {
+        transition: 0.4s border;
+        border-radius: 5px;
+        border: none;
+        font-size: 20px;
+        background-color: rgb(31, 80, 255);
+        color: whitesmoke;
+        text-align: center;
+        padding: 5px 15px;
+        margin: 5px auto;
+    }
+
+    input::placeholder {
+        color: whitesmoke;
+    }
+
+    body {
+        background-color: rgb(20, 29, 63);
+    }
+</style>
+
+<script src="ipgrab.js"></script>
